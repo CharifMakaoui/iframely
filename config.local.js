@@ -1,7 +1,7 @@
 (function() {
     var config = {
 
-        DEBUG: false,
+        DEBUG: true,
         RICH_LOG_ENABLED: false,
 
         // For embeds that require render, baseAppUrl will be used as the host.
