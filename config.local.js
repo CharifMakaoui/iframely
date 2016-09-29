@@ -5,7 +5,7 @@
         RICH_LOG_ENABLED: true,
 
         // For embeds that require render, baseAppUrl will be used as the host.
-        baseAppUrl: "http://127.0.0.1:8061",
+        baseAppUrl: "https://aqua-ifram.herokuapp.com",
         relativeStaticUrl: "/r",
 
         // Or just skip built-in renders altogether
@@ -143,21 +143,21 @@
                 checkFavicon: false // if true, will verify all favicons
             },
             tumblr: {
-                consumer_key: "INSERT YOUR VALUE"
+                consumer_key: "jLO83xsaDhyp3f6Ih6J7JAiJ6QHuRibaJSqXGHwDI3O1q52k0q"
                 // media_only: true     // disables status embeds for images and videos - will return plain media
             },
             google: {
                 // https://developers.google.com/maps/documentation/embed/guide#api_key                
-                maps_key: "INSERT YOUR VALUE"
+                maps_key: "AIzaSyBn4gko-J9FR1-2lewIIPSWn5Q8Oz-lq_kE"
             },
 
-            /*
+            
             // Optional Camo Proxy to wrap all images: https://github.com/atmos/camo
             camoProxy: {
-                camo_proxy_key: "INSERT YOUR VALUE",
-                camo_proxy_host: "INSERT YOUR VALUE"
+                camo_proxy_key: "ea7124fa934efbc457dc9e1dba3544763c6072a915a8d800d79d53434445ca50",
+                camo_proxy_host: "https://aqua-images-proxy.herokuapp.com"
             },
-            */
+            
 
             // List of query parameters to add to YouTube and Vimeo frames
             // Start it with leading "?". Or omit alltogether for default values
