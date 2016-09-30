@@ -58,7 +58,27 @@ function handleIframelyError(error, res, next) {
 }
 
 module.exports = function(app) {
-    
+
+    // Add headers
+    app.use(function(req, res, next) {
+        var allowedOrigins = [
+            'http://localhost:63343',
+            'https://localhost:63343',
+            'http://aqua-soc.herokuapp.com',
+            'https://aqua-soc.herokuapp.com'
+        ];
+        
+        var origin = req.headers.origin;
+        if(allowedOrigins.indexOf(origin) > -1){
+            res.setHeader('Access-Control-Allow-Origin', origin);
+        }
+        
+        res.header('Access-Control-Allow-Methods', 'GET, POST');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.header('Access-Control-Allow-Credentials', true);
+        return next();
+    });
+
     app.get('/iframely', function(req, res, next) {
 
         var uri = prepareUri(req.query.uri || req.query.url);

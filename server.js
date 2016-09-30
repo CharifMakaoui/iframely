@@ -14,26 +14,6 @@ var app = express();
 app.use(express.bodyParser());
 app.set('view engine', 'ejs');
 
-if (CONFIG.allowedOrigins) {
-    app.use(function(req, res, next) {
-        var origin = req.headers.origin;
-
-        if (origin) {
-            if (CONFIG.allowedOrigins.indexOf('*') > -1) {
-                res.setHeader('Access-Control-Allow-Origin', '*');
-            } else {
-                if (CONFIG.allowedOrigins.indexOf(origin) > -1) {
-                    res.setHeader('Access-Control-Allow-Origin', origin);
-                }
-            }
-        }
-
-        res.header('Access-Control-Allow-Methods', 'GET, POST');
-        res.header('Access-Control-Allow-Headers', 'Content-Type');
-        res.header('Access-Control-Allow-Credentials', true);
-        next();
-    });
-}
 app.disable( 'x-powered-by' );
 app.use(function(req, res, next) {
     res.setHeader('X-Powered-By', 'Iframely');
