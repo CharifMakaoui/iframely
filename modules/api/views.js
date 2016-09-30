@@ -62,10 +62,10 @@ module.exports = function(app) {
     // Add headers
     app.use(function(req, res, next) {
         var allowedOrigins = [
-            'http://localhost:63343',
-            'https://localhost:63343',
             'http://aqua-soc.herokuapp.com',
-            'https://aqua-soc.herokuapp.com'
+            'https://aqua-soc.herokuapp.com',
+            'http://localhost:63343',
+            'https://localhost:63343'
         ];
         
         var origin = req.get('origin');
