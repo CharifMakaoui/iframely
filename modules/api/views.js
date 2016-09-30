@@ -75,7 +75,7 @@ module.exports = function(app) {
         //}
 
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-CSRF-Token');
         res.header('Access-Control-Allow-Credentials', true);
         
         
