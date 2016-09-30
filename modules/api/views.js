@@ -59,8 +59,8 @@ function handleIframelyError(error, res, next) {
 
 module.exports = function(app) {
 
-    // Add headers
-    app.use(function(req, res, next) {
+    app.all('/iframely', function(req, res, next) {
+
         var allowedOrigins = [
             'http://aqua-soc.herokuapp.com',
             'https://aqua-soc.herokuapp.com',
@@ -68,19 +68,17 @@ module.exports = function(app) {
             'https://localhost:63343',
             'http://aqua.dev'
         ];
-        
+
         var origin = req.get('origin');
         if(allowedOrigins.indexOf(origin) > -1){
             res.setHeader('Access-Control-Allow-Origin', origin);
         }
-        
+
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         res.header('Access-Control-Allow-Credentials', true);
-        return next();
-    });
-
-    app.all('/iframely', function(req, res, next) {
+        
+        
 
         var uri = prepareUri(req.query.uri || req.query.url);
 
@@ -209,6 +207,23 @@ module.exports = function(app) {
 
     app.all('/reader.js', function(req, res, next) {
 
+        var allowedOrigins = [
+            'http://aqua-soc.herokuapp.com',
+            'https://aqua-soc.herokuapp.com',
+            'http://localhost:63343',
+            'https://localhost:63343',
+            'http://aqua.dev'
+        ];
+
+        var origin = req.get('origin');
+        if(allowedOrigins.indexOf(origin) > -1){
+            res.setHeader('Access-Control-Allow-Origin', origin);
+        }
+
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.header('Access-Control-Allow-Credentials', true);
+
         var uri = prepareUri(req.query.uri);
 
         if (!uri) {
@@ -265,6 +280,23 @@ module.exports = function(app) {
     });
 
     app.get('/render', function(req, res, next) {
+
+        var allowedOrigins = [
+            'http://aqua-soc.herokuapp.com',
+            'https://aqua-soc.herokuapp.com',
+            'http://localhost:63343',
+            'https://localhost:63343',
+            'http://aqua.dev'
+        ];
+
+        var origin = req.get('origin');
+        if(allowedOrigins.indexOf(origin) > -1){
+            res.setHeader('Access-Control-Allow-Origin', origin);
+        }
+
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.header('Access-Control-Allow-Credentials', true);
 
         var uri = prepareUri(req.query.uri);
 
@@ -336,6 +368,23 @@ module.exports = function(app) {
 
     app.all('/supported-plugins-re.json', function(req, res, next) {
 
+        var allowedOrigins = [
+            'http://aqua-soc.herokuapp.com',
+            'https://aqua-soc.herokuapp.com',
+            'http://localhost:63343',
+            'https://localhost:63343',
+            'http://aqua.dev'
+        ];
+
+        var origin = req.get('origin');
+        if(allowedOrigins.indexOf(origin) > -1){
+            res.setHeader('Access-Control-Allow-Origin', origin);
+        }
+
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.header('Access-Control-Allow-Credentials', true);
+
         var plugins = pluginLoader._plugins;
 
         var regexps = [];
@@ -373,6 +422,23 @@ module.exports = function(app) {
     });
 
     app.all('/oembed', function(req, res, next) {
+
+        var allowedOrigins = [
+            'http://aqua-soc.herokuapp.com',
+            'https://aqua-soc.herokuapp.com',
+            'http://localhost:63343',
+            'https://localhost:63343',
+            'http://aqua.dev'
+        ];
+
+        var origin = req.get('origin');
+        if(allowedOrigins.indexOf(origin) > -1){
+            res.setHeader('Access-Control-Allow-Origin', origin);
+        }
+
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.header('Access-Control-Allow-Credentials', true);
 
         var uri = prepareUri(req.query.url);
 
