@@ -69,10 +69,10 @@ module.exports = function(app) {
             'http://aqua.dev'
         ];
 
-        var origin = req.get('origin');
-        if(allowedOrigins.indexOf(origin) > -1){
-            res.setHeader('Access-Control-Allow-Origin', origin);
-        }
+        //var origin = req.get('origin');
+        //if(allowedOrigins.indexOf(origin) > -1){
+            res.setHeader('Access-Control-Allow-Origin', '*');
+        //}
 
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
