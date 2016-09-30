@@ -74,13 +74,13 @@ module.exports = function(app) {
             res.setHeader('Access-Control-Allow-Origin', origin);
         }
         
-        res.header('Access-Control-Allow-Methods', 'GET, POST');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         res.header('Access-Control-Allow-Credentials', true);
         return next();
     });
 
-    app.get('/iframely', function(req, res, next) {
+    app.all('/iframely', function(req, res, next) {
 
         var uri = prepareUri(req.query.uri || req.query.url);
 
@@ -207,7 +207,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/reader.js', function(req, res, next) {
+    app.all('/reader.js', function(req, res, next) {
 
         var uri = prepareUri(req.query.uri);
 
@@ -334,7 +334,7 @@ module.exports = function(app) {
 
     });
 
-    app.get('/supported-plugins-re.json', function(req, res, next) {
+    app.all('/supported-plugins-re.json', function(req, res, next) {
 
         var plugins = pluginLoader._plugins;
 
@@ -372,7 +372,7 @@ module.exports = function(app) {
         res.sendJsonCached(regexps);
     });
 
-    app.get('/oembed', function(req, res, next) {
+    app.all('/oembed', function(req, res, next) {
 
         var uri = prepareUri(req.query.url);
 
