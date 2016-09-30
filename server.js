@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 
 if (CONFIG.allowedOrigins) {
     app.use(function(req, res, next) {
-        var origin = req.headers["origin"];
+        var origin = req.headers.origin;
 
         if (origin) {
             if (CONFIG.allowedOrigins.indexOf('*') > -1) {
@@ -27,6 +27,10 @@ if (CONFIG.allowedOrigins) {
                 }
             }
         }
+
+        res.header('Access-Control-Allow-Methods', 'GET, POST');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        res.header('Access-Control-Allow-Credentials', true);
         next();
     });
 }
@@ -99,7 +103,7 @@ app.get(CONFIG.relativeStaticUrl + '/*', function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-    res.writeHead(302, { Location: 'http://iframely.com'});
+    res.writeHead(302, { Location: 'http://aqua-soc.herokuapp.com/'});
     res.end();
 });
 

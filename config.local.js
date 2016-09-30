@@ -2,10 +2,10 @@
     var config = {
 
         DEBUG: true,
-        RICH_LOG_ENABLED: true,
+        RICH_LOG_ENABLED: false,
 
         // For embeds that require render, baseAppUrl will be used as the host.
-        baseAppUrl: "https://aqua-ifram.herokuapp.com",
+        baseAppUrl: "http://127.0.0.1:8061",
         relativeStaticUrl: "/r",
 
         // Or just skip built-in renders altogether
@@ -65,9 +65,10 @@
 
         // Access-Control-Allow-Origin list.
         allowedOrigins: [
-            "*",
-            "http://127.0.0.1:63342",
-            "localhost:63342"
+            'http://localhost:63343',
+            'https://localhost:63343',
+            'http://aqua-soc.herokuapp.com',
+            'https://aqua-soc.herokuapp.com'
         ],
 
         /*
