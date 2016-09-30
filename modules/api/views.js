@@ -80,7 +80,7 @@ module.exports = function(app) {
         return next();
     });
 
-    app.all('/iframely', function(req, res, next) {
+    app.get('/iframely', function(req, res, next) {
 
         var uri = prepareUri(req.query.uri || req.query.url);
 
@@ -207,7 +207,7 @@ module.exports = function(app) {
         });
     });
 
-    app.all('/reader.js', function(req, res, next) {
+    app.get('/reader.js', function(req, res, next) {
 
         var uri = prepareUri(req.query.uri);
 
@@ -334,7 +334,7 @@ module.exports = function(app) {
 
     });
 
-    app.all('/supported-plugins-re.json', function(req, res, next) {
+    app.get('/supported-plugins-re.json', function(req, res, next) {
 
         var plugins = pluginLoader._plugins;
 
@@ -372,7 +372,7 @@ module.exports = function(app) {
         res.sendJsonCached(regexps);
     });
 
-    app.all('/oembed', function(req, res, next) {
+    app.get('/oembed', function(req, res, next) {
 
         var uri = prepareUri(req.query.url);
 
