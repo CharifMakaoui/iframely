@@ -65,7 +65,8 @@ module.exports = function(app) {
             'http://aqua-soc.herokuapp.com',
             'https://aqua-soc.herokuapp.com',
             'http://localhost:63343',
-            'https://localhost:63343'
+            'https://localhost:63343',
+            'http://aqua.dev'
         ];
         
         var origin = req.get('origin');
