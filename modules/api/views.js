@@ -68,7 +68,7 @@ module.exports = function(app) {
             'https://aqua-soc.herokuapp.com'
         ];
         
-        var origin = req.headers.origin;
+        var origin = req.get('origin');
         if(allowedOrigins.indexOf(origin) > -1){
             res.setHeader('Access-Control-Allow-Origin', origin);
         }
